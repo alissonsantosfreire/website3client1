@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetriz - Blocos de Fechamento em EPS | Nº1 do Nordeste</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-800">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" class="whatsapp-float flex items-center justify-center">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+        </svg>
+    </a>
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#home">
+                        <img src="Logo branca.webp" alt="Tetriz - Blocos de Fechamento em EPS" class="h-10 md:h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Início</a>
+                    <a href="#sobre" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Sobre</a>
+                    <a href="#vantagens" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Vantagens</a>
+                    <a href="#especificacoes" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Especificações</a>
+                    <a href="#obras" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Obras</a>
+                    <a href="#localizacao" class="hover:text-yellow-400 transition-colors duration-300 font-semibold">Localização</a>
+                    <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">
+                        Nº1 DO NORDESTE
+                    </span>
+                </nav>
+
+                <!-- Botão Hamburguer Mobile -->
+                <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Menu Mobile -->
+            <nav id="mobile-menu" class="lg:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Início</a>
+                    <a href="#sobre" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Sobre</a>
+                    <a href="#vantagens" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Vantagens</a>
+                    <a href="#especificacoes" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Especificações</a>
+                    <a href="#obras" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Obras</a>
+                    <a href="#localizacao" class="mobile-menu-link hover:text-yellow-400 transition-colors duration-300 font-semibold py-2 border-b border-blue-600">Localização</a>
+                    <div class="pt-2">
+                        <span class="bg-yellow-400 text-gray-900 px-3 py-2 rounded-full text-sm font-bold inline-block">
+                            Nº1 DO NORDESTE
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col-reverse lg:flex-row lg:grid lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-in">
+                    <div class="mb-8 lg:block hidden">
+                        <img src="Logo em PNG (com slogan).webp" alt="Tetriz - Blocos de Fechamento em EPS" class="h-24 md:h-32 w-auto">
+                    </div>
+                    <div class="mb-4">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">
+                            🏆 Nº1 DO NORDESTE EM BLOCOS EPS
+                        </span>
+                    </div>
+                    <h2 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        Revolução na <span class="text-blue-700">Construção Civil</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Blocos de EPS revestidos em concreto que substituem completamente o tijolo convencional. 
+                        <strong>Mais durabilidade, instalação 5x mais rápida!</strong>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" 
+                           class="pulse-button bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 text-center">
+                            💬 Solicitar Orçamento
+                        </a>
+                        <button onclick="document.getElementById('vantagens').scrollIntoView({behavior: 'smooth'})" 
+                                class="border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                            Ver Vantagens
+                        </button>
+                    </div>
+                </div>
+                <div class="floating-animation">
+                    <div class="block-3d bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg p-8 shadow-2xl">
+                        <div class="text-center">
+                            <div class="mx-auto mb-6 rounded-lg overflow-hidden">
+                                <img src="Foto do bloco (1).webp" alt="Bloco Tetriz EPS" class="w-full h-auto object-cover rounded-lg">
+                            </div>
+                            
+                            <!-- Animação de Comparação -->
+                            <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl relative overflow-hidden">
+                                <div class="comparison-container">
+                                    <!-- Lado Esquerdo: 1 Bloco -->
+                                    <div class="comparison-side">
+                                        <div class="tetriz-block">
+                                            <div class="block-number">1</div>
+                                            <div class="block-label">Bloco Tetriz</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Símbolo de Igual -->
+                                    <div class="equals-sign">
+                                        <svg class="pulse-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                            <line x1="5" y1="9" x2="19" y2="9"></line>
+                                            <line x1="5" y1="15" x2="19" y2="15"></line>
+                                        </svg>
+                                    </div>
+                                    
+                                    <!-- Lado Direito: 22 Tijolos -->
+                                    <div class="comparison-side">
+                                        <div class="bricks-container" id="bricks-container">
+                                            <!-- Grid de 22 mini tijolos que aparecem animados -->
+                                        </div>
+                                        <div class="brick-number">22</div>
+                                        <div class="brick-label">Tijolos Comuns</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Badge de Economia -->
+                                <div class="savings-badge">
+                                    <span class="savings-icon">⚡</span>
+                                    <span class="savings-text">Instalação 5x mais rápida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O que são os Blocos EPS Section -->
+    <section id="sobre" class="py-20 bg-white border-y border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        O que são os <span class="text-blue-700">Blocos de EPS?</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Conheça o futuro da construção civil com blocos de EPS revestidos em concreto. 
+                        Uma revolução que une leveza, resistência e eficiência.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">🏗️</div>
+                            <h3 class="text-2xl font-bold mb-4">Parede Pronta</h3>
+                            <p class="text-blue-100 leading-relaxed">
+                                Blocos de <strong>50cm × 1m</strong> que dispensam chapisco e oferecem acabamento liso e uniforme direto da instalação.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">⚡</div>
+                            <h3 class="text-2xl font-bold mb-4">Instalação Rápida</h3>
+                            <p class="text-yellow-50 leading-relaxed">
+                                Substitui completamente o tijolo convencional com <strong>facilidade única</strong> e instalação <strong>5x mais rápida</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-600 to-green-700 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">💪</div>
+                            <h3 class="text-2xl font-bold mb-4">Máxima Durabilidade</h3>
+                            <p class="text-green-100 leading-relaxed">
+                                EPS revestido em concreto oferece <strong>resistência superior</strong> à umidade, pragas e longevidade incomparável.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-1">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">
+                                Tecnologia EPS: O que é?
+                            </h3>
+                            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                                <strong>EPS (Poliestireno Expandido)</strong> é um material leve, isolante e extremamente resistente. 
+                                Quando revestido com uma camada de concreto de alta qualidade, transforma-se no bloco de fechamento 
+                                mais eficiente do mercado.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-white px-4 py-2 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                                    ✓ Instalação Rápida
+                                </span>
+                                <span class="bg-white px-4 py-2 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                                    ✓ Isolamento Térmico
+                                </span>
+                                <span class="bg-white px-4 py-2 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                                    ✓ Isolamento Acústico
+                                </span>
+                                <span class="bg-white px-4 py-2 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                                    ✓ Alta Resistência
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <!-- Animação de Comparação -->
+                            <div class="bg-white rounded-xl p-6 shadow-lg">
+                                <div class="comparison-container-sobre">
+                                    <!-- Lado Superior: 1 Bloco -->
+                                    <div class="comparison-side-sobre">
+                                        <div class="tetriz-block-sobre">
+                                            <div class="block-number-sobre">1</div>
+                                        </div>
+                                        <div class="block-label-sobre">Bloco Tetriz</div>
+                                    </div>
+                                    
+                                    <!-- Símbolo de Igual -->
+                                    <div class="equals-sign-sobre">
+                                        <svg class="pulse-icon-sobre" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                            <line x1="5" y1="9" x2="19" y2="9"></line>
+                                            <line x1="5" y1="15" x2="19" y2="15"></line>
+                                        </svg>
+                                    </div>
+                                    
+                                    <!-- Lado Inferior: 22 Tijolos -->
+                                    <div class="comparison-side-sobre">
+                                        <div class="bricks-container-sobre" id="bricks-container-sobre">
+                                            <!-- Grid de 22 mini tijolos que aparecem animados -->
+                                        </div>
+                                        <div class="brick-number-sobre">22</div>
+                                        <div class="brick-label-sobre">Tijolos Comuns</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens Section -->
+    <section id="vantagens" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Por que escolher os <span class="text-blue-700">Blocos Tetriz?</span>
+                </h2>
+                <p class="text-xl text-gray-600">Tecnologia avançada que revoluciona sua construção</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-700 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Isolamento Térmico Superior</h3>
+                    <p class="text-gray-600">Mantém a temperatura ideal do ambiente, reduzindo custos com climatização em até 40%.</p>
+                </div>
+
+                <div class="bg-green-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V5l-9-4zM10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Isolamento Acústico</h3>
+                    <p class="text-gray-600">Reduz significativamente a transmissão de ruídos, proporcionando mais conforto e privacidade.</p>
+                </div>
+
+                <div class="bg-yellow-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Instalação 5x Mais Rápida</h3>
+                    <p class="text-gray-600">Sem necessidade de chapisco. Instalação direta e eficiente, economizando tempo e mão de obra.</p>
+                </div>
+
+                <div class="bg-purple-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19v2h-1.5v16.5c0 1.1-.9 2-2 2h-11c-1.1 0-2-.9-2-2V4H1V2h3.5c1.1 0 2 .9 2 2v1h7V4c0-1.1.9-2 2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Maior Durabilidade</h3>
+                    <p class="text-gray-600">Resistente à umidade, pragas e intempéries. Vida útil superior ao tijolo convencional.</p>
+                </div>
+
+                <div class="bg-red-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Parede Pronta</h3>
+                    <p class="text-gray-600">Não necessita chapisco nem reboco adicional. Acabamento liso e uniforme direto da instalação.</p>
+                </div>
+
+                <div class="bg-indigo-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Economia Total</h3>
+                    <p class="text-gray-600">1 bloco equivale a 22 tijolos comuns. Menos material, menos transporte, menos mão de obra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especificações -->
+    <section id="especificacoes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Especificações <span class="text-blue-700">Técnicas</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Dimensões Padrão</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                                    <span class="font-semibold text-gray-700">Comprimento:</span>
+                                    <span class="text-blue-700 font-bold">1,00m</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                                    <span class="font-semibold text-gray-700">Altura:</span>
+                                    <span class="text-blue-700 font-bold">50cm</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                                    <span class="font-semibold text-gray-700">Equivalência:</span>
+                                    <span class="text-blue-700 font-bold">22 tijolos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Características</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-green-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">EPS revestido em concreto</span>
+                                </div>
+                                <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-green-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Não necessita chapisco</span>
+                                </div>
+                                <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-green-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Parede pronta para uso</span>
+                                </div>
+                                <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                                    <svg class="w-6 h-6 text-green-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Alta resistência estrutural</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Obras Section -->
+    <section id="obras" class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Obras Realizadas com <span class="text-blue-700">Blocos Tetriz</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Confira alguns dos projetos executados com nossos blocos de EPS
+                </p>
+            </div>
+
+            <!-- Carrossel Infinito -->
+            <div class="relative">
+                <!-- Gradientes laterais -->
+                <div class="gallery-gradient-left"></div>
+                <div class="gallery-gradient-right"></div>
+                
+                <div class="gallery-slider">
+                    <div class="gallery-track">
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (1).webp', 'Obra Tetriz 1')">
+                            <img src="Fotos das obras (1).webp" alt="Obra Tetriz 1" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (2).webp', 'Obra Tetriz 2')">
+                            <img src="Fotos das obras (2).webp" alt="Obra Tetriz 2" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (3).webp', 'Obra Tetriz 3')">
+                            <img src="Fotos das obras (3).webp" alt="Obra Tetriz 3" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (4).webp', 'Obra Tetriz 4')">
+                            <img src="Fotos das obras (4).webp" alt="Obra Tetriz 4" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (5).webp', 'Obra Tetriz 5')">
+                            <img src="Fotos das obras (5).webp" alt="Obra Tetriz 5" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (6).webp', 'Obra Tetriz 6')">
+                            <img src="Fotos das obras (6).webp" alt="Obra Tetriz 6" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (7).webp', 'Obra Tetriz 7')">
+                            <img src="Fotos das obras (7).webp" alt="Obra Tetriz 7" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (8).webp', 'Obra Tetriz 8')">
+                            <img src="Fotos das obras (8).webp" alt="Obra Tetriz 8" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (9).webp', 'Obra Tetriz 9')">
+                            <img src="Fotos das obras (9).webp" alt="Obra Tetriz 9" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (10).webp', 'Obra Tetriz 10')">
+                            <img src="Fotos das obras (10).webp" alt="Obra Tetriz 10" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (11).webp', 'Obra Tetriz 11')">
+                            <img src="Fotos das obras (11).webp" alt="Obra Tetriz 11" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (12).webp', 'Obra Tetriz 12')">
+                            <img src="Fotos das obras (12).webp" alt="Obra Tetriz 12" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (13).webp', 'Obra Tetriz 13')">
+                            <img src="Fotos das obras (13).webp" alt="Obra Tetriz 13" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (14).webp', 'Obra Tetriz 14')">
+                            <img src="Fotos das obras (14).webp" alt="Obra Tetriz 14" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (15).webp', 'Obra Tetriz 15')">
+                            <img src="Fotos das obras (15).webp" alt="Obra Tetriz 15" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (16).webp', 'Obra Tetriz 16')">
+                            <img src="Fotos das obras (16).webp" alt="Obra Tetriz 16" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (17).webp', 'Obra Tetriz 17')">
+                            <img src="Fotos das obras (17).webp" alt="Obra Tetriz 17" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (18).webp', 'Obra Tetriz 18')">
+                            <img src="Fotos das obras (18).webp" alt="Obra Tetriz 18" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (19).webp', 'Obra Tetriz 19')">
+                            <img src="Fotos das obras (19).webp" alt="Obra Tetriz 19" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (20).webp', 'Obra Tetriz 20')">
+                            <img src="Fotos das obras (20).webp" alt="Obra Tetriz 20" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (21).webp', 'Obra Tetriz 21')">
+                            <img src="Fotos das obras (21).webp" alt="Obra Tetriz 21" class="gallery-image" loading="lazy">
+                        </div>
+                        <!-- Duplicar slides para efeito infinito -->
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (1).webp', 'Obra Tetriz 1')">
+                            <img src="Fotos das obras (1).webp" alt="Obra Tetriz 1" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (2).webp', 'Obra Tetriz 2')">
+                            <img src="Fotos das obras (2).webp" alt="Obra Tetriz 2" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (3).webp', 'Obra Tetriz 3')">
+                            <img src="Fotos das obras (3).webp" alt="Obra Tetriz 3" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (4).webp', 'Obra Tetriz 4')">
+                            <img src="Fotos das obras (4).webp" alt="Obra Tetriz 4" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (5).webp', 'Obra Tetriz 5')">
+                            <img src="Fotos das obras (5).webp" alt="Obra Tetriz 5" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (6).webp', 'Obra Tetriz 6')">
+                            <img src="Fotos das obras (6).webp" alt="Obra Tetriz 6" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (7).webp', 'Obra Tetriz 7')">
+                            <img src="Fotos das obras (7).webp" alt="Obra Tetriz 7" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (8).webp', 'Obra Tetriz 8')">
+                            <img src="Fotos das obras (8).webp" alt="Obra Tetriz 8" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (9).webp', 'Obra Tetriz 9')">
+                            <img src="Fotos das obras (9).webp" alt="Obra Tetriz 9" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (10).webp', 'Obra Tetriz 10')">
+                            <img src="Fotos das obras (10).webp" alt="Obra Tetriz 10" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (11).webp', 'Obra Tetriz 11')">
+                            <img src="Fotos das obras (11).webp" alt="Obra Tetriz 11" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (12).webp', 'Obra Tetriz 12')">
+                            <img src="Fotos das obras (12).webp" alt="Obra Tetriz 12" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (13).webp', 'Obra Tetriz 13')">
+                            <img src="Fotos das obras (13).webp" alt="Obra Tetriz 13" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (14).webp', 'Obra Tetriz 14')">
+                            <img src="Fotos das obras (14).webp" alt="Obra Tetriz 14" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (15).webp', 'Obra Tetriz 15')">
+                            <img src="Fotos das obras (15).webp" alt="Obra Tetriz 15" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (16).webp', 'Obra Tetriz 16')">
+                            <img src="Fotos das obras (16).webp" alt="Obra Tetriz 16" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (17).webp', 'Obra Tetriz 17')">
+                            <img src="Fotos das obras (17).webp" alt="Obra Tetriz 17" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (18).webp', 'Obra Tetriz 18')">
+                            <img src="Fotos das obras (18).webp" alt="Obra Tetriz 18" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (19).webp', 'Obra Tetriz 19')">
+                            <img src="Fotos das obras (19).webp" alt="Obra Tetriz 19" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (20).webp', 'Obra Tetriz 20')">
+                            <img src="Fotos das obras (20).webp" alt="Obra Tetriz 20" class="gallery-image" loading="lazy">
+                        </div>
+                        <div class="gallery-slide" onclick="openLightbox('Fotos das obras (21).webp', 'Obra Tetriz 21')">
+                            <img src="Fotos das obras (21).webp" alt="Obra Tetriz 21" class="gallery-image" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicador de rolagem -->
+            <div class="text-center mt-8">
+                <p class="text-gray-500 text-sm">
+                    ← Deslize para ver mais obras → | 🔍 Clique nas fotos para ampliar
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                Pronto para Revolucionar sua Obra?
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                Atendemos todo o Cariri e região com a melhor tecnologia em blocos de fechamento
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" 
+                   class="pulse-button bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                    💬 Solicitar Orçamento Grátis
+                </a>
+                <a href="tel:+5588993269216" 
+                   class="border-2 border-white text-white hover:bg-white hover:text-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                    📞 (88) 99326-9216
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização Section -->
+    <section id="localizacao" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Nossa <span class="text-blue-700">Localização</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Visite nossa fábrica e conheça de perto a qualidade dos Blocos Tetriz
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8 items-start">
+                    <!-- Informações de Contato -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                                📍 Visite-nos
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <!-- Endereço -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-blue-700" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Endereço</h4>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Av. Senhor Martins, 691<br>
+                                            Nova Mauriti, Mauriti - CE<br>
+                                            CEP: 63210-000
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- WhatsApp -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">WhatsApp</h4>
+                                        <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" 
+                                           class="text-green-600 hover:text-green-700 font-semibold">
+                                            (88) 99326-9216
+                                        </a>
+                                        <p class="text-gray-500 text-sm mt-1">Clique para conversar</p>
+                                    </div>
+                                </div>
+
+                                <!-- Telefone -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Telefone</h4>
+                                        <a href="tel:+5588993269216" class="text-yellow-600 hover:text-yellow-700 font-semibold">
+                                            (88) 99326-9216
+                                        </a>
+                                        <p class="text-gray-500 text-sm mt-1">Horário comercial</p>
+                                    </div>
+                                </div>
+
+                                <!-- Horário -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Horário de Atendimento</h4>
+                                        <p class="text-gray-600">
+                                            Segunda a Sexta: 8h às 18h<br>
+                                            Sábado: 8h às 12h
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botão Google Maps -->
+                            <div class="mt-8">
+                                <a href="https://maps.app.goo.gl/JEbDGLQ4RGsbqx1w9" target="_blank" rel="noopener noreferrer"
+                                   class="block w-full bg-blue-700 hover:bg-blue-800 text-white text-center px-6 py-4 rounded-lg font-bold transition-all duration-300 shadow-md hover:shadow-lg">
+                                    🗺️ Abrir no Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mapa -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="relative w-full h-full min-h-[500px]">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.7266162530314!2d-38.780282224998935!3d-7.384502892625112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7a14fd6dbae60fb%3A0x14504e3304d8e662!2sPr%C3%A9-moldados%20Padre%20Bosco%20Lima!5e0!3m2!1spt-BR!2sbr!4v1759434549128!5m2!1spt-BR!2sbr" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-2xl">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chamada para Ação -->
+                <div class="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
+                    <h3 class="text-2xl font-bold mb-3">
+                        🚗 Atendemos Todo o Cariri e Região
+                    </h3>
+                    <p class="text-blue-100 text-lg mb-6">
+                        Entregamos em toda a região do Cariri Cearense com agilidade e segurança
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">Juazeiro do Norte</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">Crato</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">Barbalha</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">Mauriti</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">E região</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="mb-6">
+                        <img src="Logo branca.webp" alt="Tetriz - Blocos de Fechamento em EPS" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Nº1 do Nordeste em blocos de fechamento em EPS. Tecnologia avançada para sua construção.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contato</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+                                (88) 99326-9216
+                            </a>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-1 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">
+                                Av. Senhor Martins, 691<br>
+                                Nova Mauriti, Mauriti - CE<br>
+                                CEP: 63210-000
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/tetrizblocosdefechamento/" target="_blank" rel="noopener noreferrer" 
+                           class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5588993269216" target="_blank" rel="noopener noreferrer" 
+                           class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Tetriz - Blocos de Fechamento em EPS. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
