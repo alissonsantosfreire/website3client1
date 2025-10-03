@@ -125,7 +125,7 @@ location ~* \.(jpg|jpeg|png|gif|ico|css|js|webp)$ {
 # Redirect HTTP para HTTPS
 server {
     listen 80;
-    server_name tetrizeps.com.br;
+    server_name blocotetriz.com.br;
     return 301 https://$server_name$request_uri;
 }
 ```
@@ -136,7 +136,7 @@ server {
 
 **WhatsApp:** +55 88 99326-9216  
 **Localização:** Cariri, Ceará  
-**Website:** https://tetrizeps.com.br
+**Website:** https://blocotetriz.com.br
 
 ---
 

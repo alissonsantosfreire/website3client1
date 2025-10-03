@@ -4,32 +4,32 @@
   
   <!-- Página Principal -->
   <url>
-    <loc>https://tetrizeps.com.br/</loc>
+    <loc>https://blocotetriz.com.br/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     
     <!-- Imagens da Galeria -->
     <image:image>
-      <image:loc>https://tetrizeps.com.br/Fotos das obras (1).webp</image:loc>
+      <image:loc>https://blocotetriz.com.br/Fotos das obras (1).webp</image:loc>
       <image:title>Obra realizada com Blocos Tetriz EPS - 1</image:title>
       <image:caption>Projeto de construção executado com blocos de fechamento em EPS Tetriz</image:caption>
     </image:image>
     
     <image:image>
-      <image:loc>https://tetrizeps.com.br/Foto do bloco (2).webp</image:loc>
+      <image:loc>https://blocotetriz.com.br/Foto do bloco (2).webp</image:loc>
       <image:title>Bloco de Fechamento EPS Tetriz</image:title>
       <image:caption>Bloco de EPS para construção civil com isolamento térmico e acústico</image:caption>
     </image:image>
     
     <image:image>
-      <image:loc>https://tetrizeps.com.br/Foto do bloco (3).webp</image:loc>
+      <image:loc>https://blocotetriz.com.br/Foto do bloco (3).webp</image:loc>
       <image:title>Blocos Tetriz - Tecnologia em EPS</image:title>
       <image:caption>Solução inovadora para fechamento de paredes</image:caption>
     </image:image>
     
     <image:image>
-      <image:loc>https://tetrizeps.com.br/Foto do bloco (4).webp</image:loc>
+      <image:loc>https://blocotetriz.com.br/Foto do bloco (4).webp</image:loc>
       <image:title>Especificações Técnicas - Blocos EPS Tetriz</image:title>
       <image:caption>Bloco de fechamento com dimensões otimizadas</image:caption>
     </image:image>
@@ -37,42 +37,42 @@
   
   <!-- Seções Âncoras -->
   <url>
-    <loc>https://tetrizeps.com.br/#home</loc>
+    <loc>https://blocotetriz.com.br/#home</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://tetrizeps.com.br/#sobre</loc>
+    <loc>https://blocotetriz.com.br/#sobre</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://tetrizeps.com.br/#vantagens</loc>
+    <loc>https://blocotetriz.com.br/#vantagens</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://tetrizeps.com.br/#especificacoes</loc>
+    <loc>https://blocotetriz.com.br/#especificacoes</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://tetrizeps.com.br/#obras</loc>
+    <loc>https://blocotetriz.com.br/#obras</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://tetrizeps.com.br/#localizacao</loc>
+    <loc>https://blocotetriz.com.br/#localizacao</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
