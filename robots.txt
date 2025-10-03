@@ -1,0 +1,28 @@
+# robots.txt para Tetriz Blocos de EPS
+
+# Permitir acesso de todos os bots
+User-agent: *
+Allow: /
+
+# Velocidade de rastreamento (1 requisição por segundo)
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://tetrizeps.com.br/sitemap.xml
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear scraping agressivo
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Crawl-delay: 5

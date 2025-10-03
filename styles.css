@@ -187,24 +187,33 @@ section {
     display: none;
     position: fixed;
     z-index: 9999;
-    padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.95);
     animation: fadeIn 0.3s ease;
+    overflow: hidden;
+}
+
+.lightbox-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lightbox-content {
-    margin: auto;
-    display: block;
     max-width: 90%;
-    max-height: 85vh;
+    max-height: 90vh;
     object-fit: contain;
     animation: zoomIn 0.3s ease;
-    cursor: zoom-out;
+    transition: none;
+    user-select: none;
+    cursor: default;
+    touch-action: none;
 }
 
 @keyframes fadeIn {
@@ -220,29 +229,119 @@ section {
 .lightbox-close {
     position: absolute;
     top: 20px;
-    right: 35px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
     color: #fff;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    z-index: 10000;
+    transition: all 0.3s;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
 }
 
-.lightbox-close:hover,
-.lightbox-close:focus {
-    color: #bbb;
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
 }
 
-.lightbox-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 20px 0;
-    font-size: 18px;
+/* Navegação do Lightbox */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    user-select: none;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Controles de Zoom */
+.lightbox-zoom-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10001;
+}
+
+.lightbox-zoom-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    user-select: none;
+}
+
+.lightbox-zoom-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.lightbox-zoom-btn:active {
+    transform: scale(0.95);
+}
+
+/* Contador de fotos */
+.lightbox-counter {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 10001;
 }
 
 /* Animação de Comparação 1 Bloco = 22 Tijolos */
@@ -325,7 +424,7 @@ section {
 
 .bricks-container {
     display: grid;
-    grid-template-columns: repeat(11, 1fr);
+    grid-template-columns: repeat(13, 1fr);
     gap: 2px;
     width: 100px;
     margin-bottom: 5px;
@@ -497,7 +596,7 @@ section {
 
 .bricks-container-sobre {
     display: grid;
-    grid-template-columns: repeat(11, 1fr);
+    grid-template-columns: repeat(13, 1fr);
     gap: 3px;
     width: 130px;
     margin-bottom: 8px;
@@ -569,13 +668,42 @@ section {
     }
     
     .lightbox-close {
-        top: 10px;
-        right: 20px;
-        font-size: 40px;
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
     }
     
-    .lightbox-caption {
-        font-size: 16px;
+    .lightbox-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .lightbox-prev {
+        left: 10px;
+    }
+    
+    .lightbox-next {
+        right: 10px;
+    }
+    
+    .lightbox-zoom-controls {
+        bottom: 20px;
+        gap: 10px;
+    }
+    
+    .lightbox-zoom-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .lightbox-counter {
+        top: 20px;
+        font-size: 14px;
+        padding: 6px 16px;
     }
     
     /* Ajustes da comparação no mobile */
